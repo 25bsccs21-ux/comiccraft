@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ComicCraft - AI Comic Creator</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="container header-content">
+
+            <div class="logo">
+                🎨 ComicCraft
+            </div>
+
+            <div class="header-tagline">
+                AI Comic Creator
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    GENERATIVE AI COMIC STUDIO
+                </p>
+
+                <h1>
+                    Turn Your Story Into a Comic
+                </h1>
+
+                <p class="hero-description">
+                    Create a complete five-panel comic using
+                    AI-generated storytelling, dialogue,
+                    artwork, and PDF export.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        {% if error %}
+
+        <div class="error-box">
+
+            <strong>
+                Something went wrong.
+            </strong>
+
+            <p>
+                {{ error }}
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+        <section class="creator-card">
+
+            <div class="card-header">
+
+                <h2>
+                    Create Your Comic
+                </h2>
+
+                <p>
+                    Enter your story details below.
+                </p>
+
+            </div>
+
+
+            <form
+                action="/generate"
+                method="POST"
+                class="comic-form"
+            >
+
+
+                <div class="form-group full-width">
+
+                    <label for="story_prompt">
+                        Story Idea
+                    </label>
+
+                    <textarea
+                        id="story_prompt"
+                        name="story_prompt"
+                        rows="5"
+                        maxlength="2000"
+                        placeholder="Example: A young inventor discovers a mysterious robot in an abandoned laboratory..."
+                        required
+                    >{{ story_prompt or "" }}</textarea>
+
+                    <small>
+                        Describe the main idea of your comic.
+                    </small>
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="character_name">
+                            Main Character
+                        </label>
+
+                        <input
+                            type="text"
+                            id="character_name"
+                            name="character_name"
+                            maxlength="100"
+                            placeholder="Example: Maya"
+                            value="{{ character_name or '' }}"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="setting">
+                            Setting
+                        </label>
+
+                        <input
+                            type="text"
+                            id="setting"
+                            name="setting"
+                            maxlength="200"
+                            placeholder="Example: Futuristic Chennai"
+                            value="{{ setting or '' }}"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="tone">
+                            Story Tone
+                        </label>
+
+                        <select
+                            id="tone"
+                            name="tone"
+                            required
+                        >
+
+                            <option value="">
+                                Select a tone
+                            </option>
+
+                            <option
+                                value="Funny"
+                                {% if tone == "Funny" %}selected{% endif %}
+                            >
+                                Funny
+                            </option>
+
+                            <option
+                                value="Adventure"
+                                {% if tone == "Adventure" %}selected{% endif %}
+                            >
+                                Adventure
+                            </option>
+
+                            <option
+                                value="Mystery"
+                                {% if tone == "Mystery" %}selected{% endif %}
+                            >
+                                Mystery
+                            </option>
+
+                            <option
+                                value="Action"
+                                {% if tone == "Action" %}selected{% endif %}
+                            >
+                                Action
+                            </option>
+
+                            <option
+                                value="Romantic"
+                                {% if tone == "Romantic" %}selected{% endif %}
+                            >
+                                Romantic
+                            </option>
+
+                            <option
+                                value="Emotional"
+                                {% if tone == "Emotional" %}selected{% endif %}
+                            >
+                                Emotional
+                            </option>
+
+                            <option
+                                value="Fantasy"
+                                {% if tone == "Fantasy" %}selected{% endif %}
+                            >
+                                Fantasy
+                            </option>
+
+                            <option
+                                value="Horror"
+                                {% if tone == "Horror" %}selected{% endif %}
+                            >
+                                Horror
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="art_style">
+                            Art Style
+                        </label>
+
+                        <select
+                            id="art_style"
+                            name="art_style"
+                            required
+                        >
+
+                            <option value="">
+                                Select an art style
+                            </option>
+
+                            <option
+                                value="Modern Comic Book"
+                                {% if art_style == "Modern Comic Book" %}selected{% endif %}
+                            >
+                                Modern Comic Book
+                            </option>
+
+                            <option
+                                value="Manga"
+                                {% if art_style == "Manga" %}selected{% endif %}
+                            >
+                                Manga
+                            </option>
+
+                            <option
+                                value="Cartoon"
+                                {% if art_style == "Cartoon" %}selected{% endif %}
+                            >
+                                Cartoon
+                            </option>
+
+                            <option
+                                value="Anime"
+                                {% if art_style == "Anime" %}selected{% endif %}
+                            >
+                                Anime
+                            </option>
+
+                            <option
+                                value="Watercolor"
+                                {% if art_style == "Watercolor" %}selected{% endif %}
+                            >
+                                Watercolor
+                            </option>
+
+                            <option
+                                value="Retro Comic"
+                                {% if art_style == "Retro Comic" %}selected{% endif %}
+                            >
+                                Retro Comic
+                            </option>
+
+                            <option
+                                value="Cinematic"
+                                {% if art_style == "Cinematic" %}selected{% endif %}
+                            >
+                                Cinematic
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        ✨ Generate My Comic
+                    </button>
+
+                    <p class="form-note">
+                        Your story will be transformed into
+                        five comic panels.
+                    </p>
+
+                </div>
+
+
+            </form>
+
+        </section>
+
+
+        <section class="workflow-section">
+
+            <h2>
+                How ComicCraft Works
+            </h2>
+
+            <div class="workflow-grid">
+
+
+                <div class="workflow-card">
+
+                    <div class="workflow-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Story
+                    </h3>
+
+                    <p>
+                        Enter your idea and character details.
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-card">
+
+                    <div class="workflow-number">
+                        02
+                    </div>
+
+                    <h3>
+                        AI Writing
+                    </h3>
+
+                    <p>
+                        AI creates the story, narration,
+                        and dialogue.
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-card">
+
+                    <div class="workflow-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Artwork
+                    </h3>
+
+                    <p>
+                        AI generates artwork for every panel.
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-card">
+
+                    <div class="workflow-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Export
+                    </h3>
+
+                    <p>
+                        Download your finished comic as a PDF.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <p>
+                © 2026 ComicCraft · AI Comic Creator
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

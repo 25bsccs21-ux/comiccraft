@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ComicCraft - Export Complete</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <header class="site-header">
+
+        <div class="container header-content">
+
+            <a
+                href="/"
+                class="logo"
+            >
+                🎨 ComicCraft
+            </a>
+
+            <div class="header-tagline">
+                Export Complete
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="container success-page">
+
+
+        <section class="success-card">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+
+            <p class="eyebrow">
+                EXPORT COMPLETE
+            </p>
+
+
+            <h1>
+                Your Comic is Ready!
+            </h1>
+
+
+            <p class="success-message">
+
+                Your ComicCraft comic has been successfully
+                generated and exported as a PDF.
+
+            </p>
+
+
+            {% if file %}
+
+            <a
+                href="{{ file }}"
+                class="primary-button"
+                download
+            >
+                📥 Download Your Comic
+            </a>
+
+            {% endif %}
+
+
+            <a
+                href="/"
+                class="secondary-button"
+            >
+                ✨ Create Another Comic
+            </a>
+
+
+        </section>
+
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <p>
+                © 2026 ComicCraft · AI Comic Creator
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
