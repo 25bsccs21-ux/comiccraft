@@ -1,0 +1,3 @@
+# Project Demonstration
+
+The Project Demonstration phase presents the completed ComicCraft application and explains its major features and workflow. The demonstration shows how a user can provide a creative idea, generate story content, create visual elements, arrange comic panels, preview the result, and obtain the final comic output. This phase highlights the practical implementation of the project and demonstrates how the developed system satisfies the requirements and objectives defined during the earlier phases.

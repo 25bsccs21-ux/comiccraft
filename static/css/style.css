@@ -1,0 +1,925 @@
+/* =========================================================
+   ComicCraft - Global Styles
+   ========================================================= */
+
+:root {
+    --background: #f5f5f7;
+    --surface: #ffffff;
+    --surface-soft: #fafafa;
+
+    --text: #171717;
+    --text-soft: #666666;
+    --text-muted: #888888;
+
+    --border: #e5e5e5;
+
+    --primary: #111111;
+    --primary-hover: #333333;
+
+    --success: #198754;
+    --danger: #c62828;
+
+    --shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+
+    --radius: 18px;
+
+    --max-width: 1150px;
+}
+
+
+/* =========================================================
+   Reset
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: 0;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    line-height: 1.6;
+}
+
+
+img {
+    max-width: 100%;
+
+    display: block;
+}
+
+
+a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* =========================================================
+   Container
+   ========================================================= */
+
+.container {
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   Header
+   ========================================================= */
+
+.site-header {
+    background: var(--surface);
+
+    border-bottom:
+        1px solid var(--border);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+
+.header-content {
+    min-height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.logo {
+    font-size: 1.35rem;
+
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+}
+
+
+.header-tagline {
+    color: var(--text-soft);
+
+    font-size: 0.9rem;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   Hero
+   ========================================================= */
+
+.hero {
+    padding: 80px 0 45px;
+
+    text-align: center;
+}
+
+
+.eyebrow {
+    margin: 0 0 10px;
+
+    color: var(--text-muted);
+
+    font-size: 0.78rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+}
+
+
+.hero h1,
+.preview-hero h1,
+.success-card h1 {
+    margin: 0;
+
+    font-size: clamp(
+        2.2rem,
+        6vw,
+        4.2rem
+    );
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+}
+
+
+.hero-description {
+    max-width: 680px;
+
+    margin: 22px auto 0;
+
+    color: var(--text-soft);
+
+    font-size: 1.08rem;
+}
+
+
+/* =========================================================
+   Creator Card
+   ========================================================= */
+
+.creator-card {
+    background: var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    padding: 35px;
+}
+
+
+.card-header {
+    margin-bottom: 30px;
+}
+
+
+.card-header h2 {
+    margin: 0;
+
+    font-size: 1.7rem;
+
+    letter-spacing: -0.6px;
+}
+
+
+.card-header p {
+    margin: 6px 0 0;
+
+    color: var(--text-soft);
+}
+
+
+/* =========================================================
+   Form
+   ========================================================= */
+
+.comic-form {
+    display: block;
+}
+
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.full-width {
+    margin-bottom: 25px;
+}
+
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+.form-group label {
+    font-size: 0.92rem;
+
+    font-weight: 700;
+}
+
+
+.form-group small {
+    color: var(--text-muted);
+
+    font-size: 0.78rem;
+}
+
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: var(--surface-soft);
+
+    color: var(--text);
+
+    padding: 13px 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.form-group textarea {
+    resize: vertical;
+
+    min-height: 130px;
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    background: var(--surface);
+
+    border-color: #999;
+
+    box-shadow:
+        0 0 0 3px rgba(
+            0,
+            0,
+            0,
+            0.06
+        );
+}
+
+
+.form-actions {
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid var(--border);
+
+    text-align: center;
+}
+
+
+.form-note {
+    margin: 10px 0 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.8rem;
+}
+
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+
+.primary-button,
+.secondary-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding:
+        12px 22px;
+
+    border-radius: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.primary-button {
+    border: 0;
+
+    background: var(--primary);
+
+    color: #ffffff;
+}
+
+
+.primary-button:hover {
+    background: var(--primary-hover);
+
+    transform: translateY(-1px);
+}
+
+
+.secondary-button {
+    border:
+        1px solid var(--border);
+
+    background: var(--surface);
+
+    color: var(--text);
+}
+
+
+.secondary-button:hover {
+    border-color: #aaa;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   Workflow
+   ========================================================= */
+
+.workflow-section {
+    padding: 70px 0;
+}
+
+
+.workflow-section > h2 {
+    margin: 0 0 25px;
+
+    font-size: 1.8rem;
+
+    letter-spacing: -0.7px;
+}
+
+
+.workflow-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+.workflow-card {
+    background: var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 15px;
+
+    padding: 25px;
+}
+
+
+.workflow-number {
+    margin-bottom: 12px;
+
+    color: var(--text-muted);
+
+    font-size: 0.78rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.workflow-card h3 {
+    margin: 0 0 7px;
+
+    font-size: 1.05rem;
+}
+
+
+.workflow-card p {
+    margin: 0;
+
+    color: var(--text-soft);
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   Error
+   ========================================================= */
+
+.error-box {
+    margin-bottom: 25px;
+
+    padding: 18px 20px;
+
+    background: #fff5f5;
+
+    border:
+        1px solid #f1c5c5;
+
+    border-radius: 12px;
+
+    color: var(--danger);
+}
+
+
+.error-box p {
+    margin: 5px 0 0;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   Comic Preview
+   ========================================================= */
+
+.preview-page {
+    padding-bottom: 70px;
+}
+
+
+.preview-hero {
+    padding: 65px 0 40px;
+
+    text-align: center;
+}
+
+
+.preview-hero > p:last-child {
+    margin: 15px auto 0;
+
+    color: var(--text-soft);
+}
+
+
+.comic-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 25px;
+}
+
+
+.comic-panel {
+    overflow: hidden;
+
+    background: var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+}
+
+
+.panel-header {
+    padding: 20px 22px 15px;
+}
+
+
+.panel-number {
+    display: inline-block;
+
+    margin-bottom: 5px;
+
+    color: var(--text-muted);
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+.panel-header h2 {
+    margin: 0;
+
+    font-size: 1.25rem;
+
+    letter-spacing: -0.4px;
+}
+
+
+.panel-image-wrapper {
+    background: #eeeeee;
+
+    border-top:
+        1px solid var(--border);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.panel-image {
+    width: 100%;
+
+    aspect-ratio: 3 / 2;
+
+    object-fit: cover;
+}
+
+
+.panel-content {
+    padding: 20px 22px 25px;
+}
+
+
+.panel-content strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 0.82rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+
+.panel-content p {
+    margin: 0;
+
+    color: var(--text-soft);
+
+    font-size: 0.92rem;
+}
+
+
+.narration-box {
+    margin-bottom: 18px;
+
+    padding: 15px;
+
+    background: var(--surface-soft);
+
+    border-radius: 10px;
+}
+
+
+.dialogue-box {
+    margin-bottom: 18px;
+}
+
+
+.dialogue-line {
+    padding-left: 15px;
+
+    border-left:
+        3px solid #cccccc;
+
+    margin-bottom: 7px !important;
+
+    font-style: italic;
+}
+
+
+.scene-description {
+    padding-top: 15px;
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+/* =========================================================
+   Export Section
+   ========================================================= */
+
+.export-section {
+    padding-top: 35px;
+}
+
+
+.export-card {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 30px;
+
+    background: var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+}
+
+
+.export-card h2 {
+    margin: 0 0 5px;
+
+    font-size: 1.4rem;
+}
+
+
+.export-card p {
+    margin: 0;
+
+    color: var(--text-soft);
+}
+
+
+.export-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    justify-content: flex-end;
+}
+
+
+/* =========================================================
+   Success Page
+   ========================================================= */
+
+.success-page {
+    min-height: 70vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.success-card {
+    width: min(
+        650px,
+        100%
+    );
+
+    padding: 55px 35px;
+
+    background: var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    text-align: center;
+}
+
+
+.success-icon {
+    width: 70px;
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+
+    background: #e9f7ef;
+
+    color: var(--success);
+
+    font-size: 2rem;
+
+    font-weight: 800;
+}
+
+
+.success-message {
+    max-width: 500px;
+
+    margin: 20px auto 30px;
+
+    color: var(--text-soft);
+}
+
+
+.success-card .secondary-button {
+    margin-left: 10px;
+}
+
+
+/* =========================================================
+   Footer
+   ========================================================= */
+
+.site-footer {
+    padding: 30px 0;
+
+    border-top:
+        1px solid var(--border);
+
+    background: var(--surface);
+}
+
+
+.site-footer p {
+    margin: 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.82rem;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   Responsive Design
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .workflow-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .comic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .export-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .export-actions {
+        justify-content: flex-start;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .container {
+        width: min(
+            calc(100% - 25px),
+            var(--max-width)
+        );
+    }
+
+
+    .header-content {
+        min-height: 62px;
+    }
+
+
+    .header-tagline {
+        display: none;
+    }
+
+
+    .hero {
+        padding: 55px 0 30px;
+    }
+
+
+    .creator-card {
+        padding: 22px;
+    }
+
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .workflow-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .export-actions {
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+
+    .export-actions a {
+        width: 100%;
+    }
+
+
+    .success-card {
+        padding: 40px 22px;
+    }
+
+
+    .success-card .secondary-button {
+        margin-left: 0;
+
+        margin-top: 10px;
+    }
+
+}
